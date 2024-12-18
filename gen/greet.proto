@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package greet.v1;
+option go_package = "github.com/toyozaki/grpc_sample/gen/greet/v1;greetv1";
+
+service GreetService {
+    rpc UnaryGreet(UnaryGreetRequest) returns (UnaryGreetReply) {}
+    rpc ClientStreamGreet(stream ClientStreamGreetRequest)
+        returns (ClientStreamGreetReply) {}
+    rpc ServerStreamGreet(ServerStreamGreetRequest)
+        returns (stream ServerStreamGreetReply) {}
+    rpc BidirectionalStreamGreet(stream BidirectionalStreamGreetRequest)
+        returns (stream BidirectionalStreamGreetReply) {}
+}
+
+message UnaryGreetRequest {
+    string name = 1;
+}
+
+message UnaryGreetReply {
+    string message = 1;
+}
+
+message ClientStreamGreetRequest {
+    string name = 1;
+}
+
+message ClientStreamGreetReply {
+    string message = 1;
+}
+
+message ServerStreamGreetRequest {
+    string name = 1;
+}
+
+message ServerStreamGreetReply {
+    string message = 1;
+}
+
+message BidirectionalStreamGreetRequest {
+    string name = 1;
+}
+
+message BidirectionalStreamGreetReply {
+    string message = 1;
+}
